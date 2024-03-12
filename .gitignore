@@ -1,0 +1,10 @@
+.DS_Store
+.nyc_output/
+.report/
+*.log
+*.js.map
+node_modules/
+lib/
+bin/
+types/
+tsconfig.tsbuildinfo

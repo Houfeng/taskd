@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "rootDir": "./src/",
+    "outDir": "./lib/",
+    "declarationDir": "./types/",
+    "incremental": true,
+    "sourceMap": false,
+    "allowJs": false,
+    "declaration": true,
+    "declarationMap": false,
+    "noEmitOnError": true,
+    "module": "NodeNext",
+    "target": "ESNext",
+    "removeComments": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": false,
+    // "moduleResolution": "NodeNext",
+    "importHelpers": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    // "resolveJsonModule": true,
+    /* 严格检查 */
+    "strict": true,
+    "noImplicitAny": true,
+    // 临时 false
+    "strictNullChecks": false,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    // 临时 false
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    /* 严格检查 */
+    "lib": [
+      "ES2022",
+    ],
+  },
+  "include": [
+    "./src/"
+  ],
+  "exclude": [
+    "**/node_modules",
+    "**/.*/"
+  ]
+}
