@@ -1,3 +1,6 @@
+/**
+ * Task handle function
+ */
 export type TaskHandler = () => Promise<unknown> | unknown;
 
 function isTaskHandler(value: unknown): value is TaskHandler {
@@ -15,13 +18,29 @@ export type Task = {
 };
 
 /**
- * Define tasks and specify summary
- * @param summary Task summary
- * @param tasks   Task items（arguments）
+ * Define tasks and specify summary & dependencies
+ * 
+ * @param summary       task summary
+ * @param dependencies  dependencies tasks
  * @returns 
  */
 export function task(summary: string, dependencies: Array<Task>): Task;
+/**
+ * Define tasks and specify summary & handler
+ * 
+ * @param summary  task summary
+ * @param handler  task handler
+ * @returns 
+ */
 export function task(summary: string, handler: TaskHandler): Task;
+/**
+ * Define tasks and specify summary & dependencies & handler
+ * 
+ * @param summary       task summary
+ * @param dependencies  dependencies tasks
+ * @param handler       task handler
+ * @returns 
+ */
 export function task(summary: string, dependencies: Array<Task>, handler: TaskHandler): Task;
 export function task(summary: string, ...args: unknown[]): Task {
   const fistArg = args[0];
@@ -32,8 +51,8 @@ export function task(summary: string, ...args: unknown[]): Task {
 }
 
 /**
- * Parallel execution
- * @param tasks Task items（arguments）
+ * Parallel task
+ * @param tasks dependencies tasks
  * @returns 
  */
 export function P(...tasks: Task[]): Task {
