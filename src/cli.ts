@@ -5,7 +5,7 @@ import { version } from "./info.js";
 import { help } from "./help.js";
 import { error } from "./colors.js";
 
-const DEFAULT_CONFIG_FILE = 'task.config.js';
+const DEFAULT_CONFIG_FILE = 'task.config.mjs';
 const DEFAULT_TASK_NAME = 'default';
 
 cmdline
