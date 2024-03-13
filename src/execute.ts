@@ -1,5 +1,5 @@
 import { existsSync } from "fs";
-import { subject, warning } from "./colors.js";
+import { color } from "./utils.js";
 import { Task } from "./task.js";
 import { normalize } from "path";
 
@@ -9,9 +9,8 @@ process.env.PATH += `:${NODE_MODULES_BIN}`;
 export async function executeTask(task: Task, independent = false) {
   const { summary, handler, dependencies } = task;
   if (!independent) for (const dep of dependencies) await executeTask(dep);
-  console.log(subject(summary));
+  console.log(color.subject(summary));
   await handler();
-  console.log('');
 }
 
 export async function executeTasksByConfigFile(
@@ -19,12 +18,11 @@ export async function executeTasksByConfigFile(
   keys: string[],
   independent = false
 ) {
-  if (!existsSync(file)) return console.log(warning('Can`t load file:'), file);
-  console.log('');
+  if (!existsSync(file)) return console.log(color.warning('Can`t load file:'), file);
   const tasks: Record<string, Task> = await import(file);
   for (const key of keys) {
     const task = tasks[key];
-    if (!task) return console.error(warning('Task does not exist:'), key);
+    if (!task) return console.error(color.warning('Task does not exist:'), key);
     await executeTask(task, independent);
   }
 }

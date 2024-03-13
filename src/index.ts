@@ -1,5 +1,4 @@
 export { version } from './info.js';
-export { task, P } from "./task.js";
-export { colors } from "./colors.js";
-export { $ } from "zx";
+export { task, P, I } from "./task.js";
+export { color, glob, $ } from "./utils.js";
 export { executeTask, executeTasksByConfigFile } from './execute.js';

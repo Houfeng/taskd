@@ -61,3 +61,18 @@ export function P(...tasks: Task[]): Task {
   const dependencies: Task[] = [];
   return { summary, dependencies, handler };
 }
+
+/**
+ * Convert to No Dependency Task
+ * @param task task
+ */
+export function I(task: Task): Task;
+/**
+ * Convert to No Dependency Task
+ * @param tasks tasks
+ */
+export function I(...tasks: Task[]): Task[]
+export function I(task: Task, ...tasks: Task[]): Task | Task[] {
+  if (tasks.length === 1) return { ...task, dependencies: [] };
+  return tasks.map(it => ({ ...it, dependencies: [] }));
+}
