@@ -4,7 +4,7 @@ import { Task } from "./task.js";
 import { normalize } from "path";
 
 const NODE_MODULES_BIN = normalize(`${process.cwd()}/node_modules/.bin/`);
-process.env.PATH += `:${NODE_MODULES_BIN}`;
+process.env.PATH = `${NODE_MODULES_BIN}:` + process.env.PATH;
 
 export async function executeTask(task: Task, independent = false) {
   const { summary, handler, dependencies } = task;
