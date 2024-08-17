@@ -4,6 +4,8 @@ import { executeTasksByConfigFile } from "./execute.js";
 import { version } from "./info.js";
 import { help } from "./help.js";
 
+process.env.FORCE_COLOR = '1';
+
 const DEFAULT_CONFIG_FILE = 'task.config.mjs';
 const DEFAULT_TASK_NAME = 'default';
 
