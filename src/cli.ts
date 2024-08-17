@@ -3,16 +3,12 @@ import { resolve } from "path";
 import { executeTasksByConfigFile } from "./execute.js";
 import { version } from "./info.js";
 import { help } from "./help.js";
-import { color } from "./utils.js";
 
 const DEFAULT_CONFIG_FILE = 'task.config.mjs';
 const DEFAULT_TASK_NAME = 'default';
 
 cmdline
-  .error(err => {
-    console.log(color.error('ERROR'), err);
-    process.exit(1);
-  })
+  .error(() => process.exit(1))
   .version(version)
   .help(help)
   .option(['-c', '--config'], 'string')
